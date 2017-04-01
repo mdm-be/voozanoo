@@ -79,11 +79,13 @@ Vous devez égalmenet cocher la case « afficher la variable sur le questionnair
  
  
 ##### Parametre Aditionnel : 
- data-info | ( par défaut : false ) si sa valeur est à true la procédure récupèrera les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché  
- data-info-visible | ( par défaut : false ) si sa valeur est à true la procédure affichera les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché  
- data-info-white-field | ( par défaut : false ) par défaut toute les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché qui seront sans réponse ne s’affichera pas   
- data-subform-min | ( par défaut : 0 ) permet de déterminé le minimum d’enregistrement que doit contenir le sous-questionnaire pour validé la sauvegarde du formulaire  
- data-info-color | ( par défaut : aucun couleur) permet de placer une bordure de couleur autour des enregistrement qui sont ouvert par automatiquement ( voir après). Si ce paramètre n’est pas m’entonné, les enregistrements n’auront pas de bordure de couleur appliqué. 
+Parametre | Description
+------------ | -------------
+data-info | ( par défaut : false ) si sa valeur est à true la procédure récupèrera les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché.
+data-info-visible | ( par défaut : false ) si sa valeur est à true la procédure affichera les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché.
+data-info-white-field | ( par défaut : false ) par défaut toute les variables du sous-questionnaire dont la case « afficher la variable sur le questionnaire en amont » est coché qui seront sans réponse ne s’affichera pas.
+data-subform-min | ( par défaut : 0 ) permet de déterminé le minimum d’enregistrement que doit contenir le sous-questionnaire pour validé la sauvegarde du formulaire.
+data-info-color | ( par défaut : aucun couleur) permet de placer une bordure de couleur autour des enregistrement qui sont ouvert par automatiquement ( voir après). Si ce paramètre n’est pas m’entonné, les enregistrements n’auront pas de bordure de couleur appliqué. 
  
 Vous pouvez aussi faire affiché les détaille automatique de l’un ou l’autre ligne en créé une variable que renvoi ma variable 0 oui 1. 0 pour ne pas affiché et 1 pour afficher les détaille. Celle-ci doit avoir la case « afficher la variable sur le questionnaire en amont » coché et son abréviation doit être « **show** » . Cette variable peut-être de n’importe quel type 
  
