@@ -154,7 +154,6 @@ MdmFct = {
 						.attr('onclick', thisSaveButton.attr('onclick')).wrap('<p/>').parent().html()
 					)
 			})
-			// saveButton.
 
 			$('[data-tooltip="tooltip"]', $(this)).tooltip()
 
@@ -170,50 +169,37 @@ MdmFct = {
 			calendar.css('z-index', '1041')
 			attrOnclick = button.attr('onclick');
 			main.idParent = button.closest('fieldset').attr('id')
-			// if(typeof attrOnclick !== "undefined"){
-			// 	substring="SetIndexValue"
-			// 	if(attrOnclick.indexOf(substring) !== -1){
-			// 		index = attrOnclick.match(/\(([0-9]*)\)/)[1]
-			// 		$.get(main.urlScript+MdmConst.urlonform+index, function( data ) {
-			// 			modal.find('.modal-body').html(main.getform(data, true))
-			// 		}).fail(function(xhr, status, error) {
-			// 			modal.modal('hide')
-  	// 			})
-			// 	}
-			// 	eval(attrOnclick.replace('return','').toString())
-			// }else{
-				form = button.closest('form')
-				data = form.serializeArray();
-				substring="SetIndexValue"
-				if(typeof attrOnclick !== "undefined" && attrOnclick.indexOf(substring) !== -1){
-					data.push( {
-						name: 'save',
-						value: 'Modify'
-					})
+			form = button.closest('form')
+			data = form.serializeArray();
+			substring="SetIndexValue"
+			if(typeof attrOnclick !== "undefined" && attrOnclick.indexOf(substring) !== -1){
+				data.push( {
+					name: 'save',
+					value: 'Modify'
+				})
 
-				}else{
-					data.push( {
-						name: button.attr("name"),
-						value: button.val()
-					})
-				}
-				$.post( main.urlScript+MdmConst.url, data , function( data ) {
-					htmlForm = main.getform(data, true)
-					if(form.find('[name=form_id_questionnaire]').val() == htmlForm.find('[name=form_id_questionnaire]').val()){
-						modal.modal('hide')
-						$('body').find('#content').first().html($(data).find('#content'))
-
-							if (!MdmConst.debug){
-								mdm.hiddenSubForm();
-								mdm.moveSubForm();
-							} 
-					}else{
-						modal.find('.modal-body').html(htmlForm)
-					}
-				}).fail(function(xhr, status, error) {
+			}else{
+				data.push( {
+					name: button.attr("name"),
+					value: button.val()
+				})
+			}
+			$.post( main.urlScript+MdmConst.url, data , function( data ) {
+				htmlForm = main.getform(data, true)
+				if(form.find('[name=form_id_questionnaire]').val() == htmlForm.find('[name=form_id_questionnaire]').val()){
 					modal.modal('hide')
-				});
-			// }
+					$('body').find('#content').first().html($(data).find('#content'))
+
+						if (!MdmConst.debug){
+							mdm.hiddenSubForm();
+							mdm.moveSubForm();
+						} 
+				}else{
+					modal.find('.modal-body').html(htmlForm)
+				}
+			}).fail(function(xhr, status, error) {
+				modal.modal('hide')
+			});
 		}).on('shown.bs.modal', function(e){
 		}).on('hide.bs.modal', function (e) {
 			$("body").css('overflow', '');
@@ -465,6 +451,14 @@ global_cal_var_objects[\'obj_test\'] = new Object();\
 			}
 		}
 	},
+	initInputValue : function(){
+		main=this
+		$('.init-value').each(function(){
+			destination = $('#'+$(this).data('destination'))
+			if (destination.length > 0 && destination.val()=="")
+				destination.val($(this).data('value')) 
+		})
+	},
 	addCss : function(){
 		main=this
 		cssTexte=''
@@ -565,6 +559,7 @@ function l() {
 		mdm.initModal();
 		if (!MdmConst.debug) mdm.moveSubForm();
 	}
+	mdm.initInputValue();
 	mdm.updateData();
 	mdm.hideWhiteFields();
 	mdm.scrollTo();
