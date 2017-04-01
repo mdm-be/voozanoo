@@ -451,6 +451,14 @@ global_cal_var_objects[\'obj_test\'] = new Object();\
 			}
 		}
 	},
+	initInputValue : function(){
+		main=this
+		$('.init-value').each(function(){
+			destination = $('#'+$(this).data('destination'))
+			if (destination.length > 0 && destination.val()=="")
+				destination.val($(this).data('value')) 
+		})
+	},
 	addCss : function(){
 		main=this
 		cssTexte=''
@@ -551,6 +559,7 @@ function l() {
 		mdm.initModal();
 		if (!MdmConst.debug) mdm.moveSubForm();
 	}
+	mdm.initInputValue();
 	mdm.updateData();
 	mdm.hideWhiteFields();
 	mdm.scrollTo();
