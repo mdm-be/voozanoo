@@ -65,7 +65,7 @@ Attention, pour chaque sous questionnaire, vous devez avoir un chiffre différen
 ![Caché la liste des élément d’un sous questionnaire](/images/hide_block_02.png)
  
 #### Affichage d’un sous-questionnaire dans un popup sur une liste on forme : 
-Attention, cette fonctionnalité est associer avec la fonction de camouflage de liste (point 4). Donc lorsque la fonction popup est activée la liste du sou-formulé qui lui est associé sera caché. 
+**Attention**, cette fonctionnalité est associer avec la fonction de camouflage de liste (point 4). Donc lorsque la fonction popup est activée la liste du sou-formulé qui lui est associé sera caché. 
 Allez dans la page ou vous avez placé votre list on-form . 
 Editez le bloc texte (Smaty) avec le short-code  et ajouté `<div id="onform_1">` devant le short-code et `</div>` derrière le code. 
 
@@ -88,16 +88,33 @@ data-info-white-field | ( par défaut : false ) par défaut toute les variable
 data-subform-min | ( par défaut : 0 ) permet de déterminé le minimum d’enregistrement que doit contenir le sous-questionnaire pour validé la sauvegarde du formulaire.
 data-info-color | ( par défaut : aucun couleur) permet de placer une bordure de couleur autour des enregistrement qui sont ouvert par automatiquement ( voir après). Si ce paramètre n’est pas m’entonné, les enregistrements n’auront pas de bordure de couleur appliqué. 
  
-Vous pouvez aussi faire affiché les détaille automatique de l’un ou l’autre ligne en créé une variable que renvoi ma variable 0 oui 1. 0 pour ne pas affiché et 1 pour afficher les détaille. Celle-ci doit avoir la case « afficher la variable sur le questionnaire en amont » coché et son abréviation doit être « **show** » . Cette variable peut-être de n’importe quel type 
+Vous pouvez aussi faire affiché les détaille automatique de l’un ou l’autre ligne en créé une variable que renvoi ma variable 0 oui 1. 0 pour ne pas affiché et 1 pour afficher les détaille. Celle-ci doit avoir la case « afficher la variable sur le questionnaire en amont » coché et son abréviation doit être « `**show**` » . Cette variable peut-être de n’importe quel type 
  
 ![mise en évidance de ligne](/images/show_popup_04.png)
  
-Attention, le chiffre  qui se trouve a la fin de onform_ doit être le même que celui que vous avez défini dans la fonction  de camouflage  (point 3). Si la valeur est incorrecte la fonction ne s’appliquera pas. 
+**Attention**, le chiffre  qui se trouve a la fin de onform_ doit être le même que celui que vous avez défini dans la fonction  de camouflage  (point 3). Si la valeur est incorrecte la fonction ne s’appliquera pas. 
  
-Attention, les noms de variable du sous-questionnaire ne peuvent pas être présent dans le questionnaire parent. C’est-à-dire qu’il ne peut pas avoir une variable qui a le même nom dans le questionnaire principal et sous-questionnaire simultanément. 
+**Attention**, les noms de variable du sous-questionnaire ne peuvent pas être présent dans le questionnaire parent. C’est-à-dire qu’il ne peut pas avoir une variable qui a le même nom dans le questionnaire principal et sous-questionnaire simultanément. 
  
 ![apparence 1](/images/show_popup_05.png)
  
- Info, cette fonction ne peut pas être utilisé en cascade de sous-formulaire. C’est-à-dire une ouvrir un sous-formulaire dans un popup quand le formulaire qui l’appel est lui même un sous-formulaire ouvert dans un popup. 
+ **Info**, cette fonction ne peut pas être utilisé en cascade de sous-formulaire. C’est-à-dire une ouvrir un sous-formulaire dans un popup quand le formulaire qui l’appel est lui même un sous-formulaire ouvert dans un popup. 
  
 ![apparence 2](/images/show_popup_06.png)
+
+#### Initialisation de variable : 
+Ajouté un champs texte aprés la question question que vous souhaiez initialiser par une valeur et introduisez le teste ci-dessous
+
+```html 
+<span class="init-value" data-value="XXXXXX" data-destination="id_pp_paper_file_id" />
+```
+
+##### Parametre
+Parametre | Description
+------------ | -------------
+data-value | contient la valeur qui sera copier dans la question à initiliser .
+data-destination | contient l'identifieat de la question a initiliser.
+
+![exemple d'initilisation de question](/images/init_value.png)
+
+**Info**, vous pouvez utilisez des variables smarty pour compété par des valeurs dinamique comme ci-dessus
