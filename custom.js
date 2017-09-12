@@ -342,25 +342,9 @@ MdmFct = {
 			this.cleanScript(data)
 		}
 		if(initializa){
-			initYahoo=''
-			if(typeof YAHOO.showdiv ==='undefined' ){
-				data.append('<link rel="stylesheet" type="text/css" href="https://mdmdpi-belgique.voozanoo.net//javascript/voo3/meta-3.4.5/assets/calcul_variable_engine_module.css">\
-					<script type="text/javascript" src="https://mdmdpi-belgique.voozanoo.net//javascript/voo3/meta-3.4.5/calcul_variable_engine_module.js"></script>')
-			}
-			if(typeof YAHOO.showdiv ==='undefined' ){
-				initYahoo=initYahoo+'YAHOO.namespace("showdiv.container");\
-global_cal_var_objects = new Object();\
-global_cal_var_objects[\'blurfunc\'] = new Object();\
-global_cal_var_objects[\'obj_var\'] = new Object();\
-global_cal_var_objects[\'obj_test\'] = new Object();\
-'
-			}
-			ICVEM=html.match(/(function[\s]*InitializeCalculVariableEngineModule[^]*)YAHOO.util.Event.addListener.*InitializeCalculVariableEngineModule\);/)[1]
 			data.append('<script type="text/javascript">\
 	MdmFct.updateData();\
 	MdmFct.hideWhiteFields();\
-	'+initYahoo+ICVEM+'\
-	InitializeCalculVariableEngineModule();\
 </script>')
 		}
 
