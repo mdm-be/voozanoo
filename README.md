@@ -6,11 +6,11 @@ Guide des fonctions additionnel pour le DPI
 ## Prérequis :  
 Pour avoir les fonctions additionnel sur une tab, il faut ajouté un champs texte en bas du formulaire avec : 
  ```html
- <script src="https://www.dropbox.com/s/sc5k6k4rx4bex83/preprod.custom.js?dl=1"></script> 
+ <script src="https://shiny.medecinsdumonde.be/js-voozanoo/preprod.custom.js"></script> 
   ```
 pour le pre- prod et 
  ```html
-<script src="https://www.dropbox.com/s/jjlgmue97ilwf4n/custom.js?dl=1"></script> 
+<script src="https://shiny.medecinsdumonde.be/js-voozanoo/custom.js"></script> 
  ```
 pour le prod. 
 
